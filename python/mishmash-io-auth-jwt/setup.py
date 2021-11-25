@@ -15,20 +15,29 @@
 import os
 from glob import glob
 
-from setuptools import find_packages
 from setuptools import setup
 
+def readme():
+    try:
+        with open('README.md', 'r') as doc:
+            return doc.read()
+    except IOError:
+        return """\
+# mishmash-io-auth-jwt
 
-this_directory = os.path.abspath(os.path.dirname(__file__))
+See [mishmash io](https://mishmash.io) for documentation.
+"""
 
-with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
+def version():
+    with open('VERSION.txt', 'r') as version:
+        return version.readline().strip()
+
 
 setup(
     name='mishmash_io_auth_jwt',
-    version='0.0.1',
+    version=version(),
     description='mishmash io auth jwt plugin',
-    long_description=long_description,
+    long_description=readme(),
     long_description_content_type='text/markdown',
     author='mishmash.io',
     author_email='info@mishmash.io',
@@ -59,22 +68,15 @@ setup(
     ],
     keywords='database, artificial intelligence, development',
     python_requires='>=3.6, <4',
-    packages=find_packages('src'),
 
     package_dir={'': 'src'},
-
     py_modules=[os.path.splitext(os.path.basename(path))[0] for path in glob('src/*.py')],
     include_package_data=True,
 
-    setup_requires=[
-        'wheel',
-    ],
-
     install_requires=[
-        'PyJWT',
         'requests',
-        'pycryptodome',
-        'pyjwt[crypto]'
+        'pyjwt[crypto]',
+        'pycryptodome'
     ], 
 
     extras_require={

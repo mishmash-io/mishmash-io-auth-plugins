@@ -1,33 +1,50 @@
-# Mishmash io authentication jwt plugin
-Mishmash io jwt authentication plugin allows you to authenticate to Mishmash io server.
+# Mishmash io authentication openid connect plugin
+
+This package is intended to be used as part of [*mishamsh-io-client*](https://mishmash.io) for authorization with identity provider implementing openid connect.
+
+*mishmash io* is a distributed and scalable database that allows you to easily implement smart, predictive features in your app.
+*Find out more on [mishmash.io](https://mishmash.io)*
+
+# Getting Started
+
+## Installation
+
+*The desired authorization plugin must be installed and used only with [*mishamsh-io-client*](https://mishmash.io)*.
+
+You shoudnt install this package independently
 
 
-# Prerequisites
-Python 3.6 or greater
+##  Usage
 
-# Installation
+This module is used by [*mishamsh-io-client*](https://mishmash.io) to generate access token signed by identity provider. To be able to work it needs the following configuration:
 
-Install using pip:
-
-``` pip install mishmash-io-auth-jwt```
-
-To upgrade the package to its latest version:
-
-``` pip install mishmash-io-auth-jwt --upgrade ```
+* MISHMASHIO_SERVERS - list of mishmash servers endpoints
+* MISHMASHIO_APP_ID - id of the app using mishmash client
+* MISHMASHIO_AUTH_SERVER - the identity provider server endpoint
+* MISHMASHIO_AUTH_PRIVATE_KEY - Private key used for authentication with the identity provider
 
 
-# Configuration
-Mishmash io authentication jwt plugin needs some configuration variables.
+## Dependencies
 
-## MISHMASHIO_AUTH_PRIVATE_KEY 
+* Python 3.6 or greater
 
-A private key to sign the token - This private key must be unique and never be revealed. 
-To add the private key you should set environment variable called  MISHMASHIO_AUTH_PRIVATE_KEY or add it to config file
+* PyJwt[crypto] - we are using RS256 algorithm for signing JWT tokens, and using pyjwt as dependency. Creators of PyJwtrecommends to use PyJwt [crypto] in requirements files RS256 algorithm has been used 
 
-## MISHMASHIO_AUTH_SERVER
+* requests 
 
-authentication server endpoint
+* pycryptodome
 
-## MISHMASHIO_APP_ID
+##	Latest releases
+- 0.0.1 (Latest)
 
-registered mishmash app id in mishmash server 
+##	Authors
+
+- Mishmash io
+
+    * <https://mishmash.io/> 
+    *  <info@mishmash.io>
+    * [github](https://github.com/mishmash-io)
+
+##	License
+
+- This project is licensed under Apache 2.0. Full license text is available in [LICENSE](https://www.apache.org/licenses/LICENSE-2.0).

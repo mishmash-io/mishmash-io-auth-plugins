@@ -105,3 +105,6 @@ venv.bak/
 
 .vscode
 .env/
+test/test.py
+test/client.json
+client.json
