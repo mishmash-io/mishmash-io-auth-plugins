@@ -7,9 +7,9 @@ version: 2
 updates:
   - package-ecosystem: "pip"
     directories:
-    - "/python/mishmash-io-auth-aws"
-    - "/python/mishmash-io-auth-azure"
-    - "/python/mishmash-io-auth-google"
-    - "/python/mishmash-io-auth-jwt"
+      - "/python/mishmash-io-auth-aws"
+      - "/python/mishmash-io-auth-azure"
+      - "/python/mishmash-io-auth-google"
+      - "/python/mishmash-io-auth-jwt"
     schedule:
       interval: "daily"
