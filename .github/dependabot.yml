@@ -6,6 +6,10 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/python" # Location of package manifests
+    directories:
+    - "/python/mishmash-io-auth-aws"
+    - "/python/mishmash-io-auth-azure"
+    - "/python/mishmash-io-auth-google"
+    - "/python/mishmash-io-auth-jwt"
     schedule:
       interval: "daily"
